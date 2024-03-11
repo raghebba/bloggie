@@ -1,0 +1,30 @@
+.fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 15px;
+    font-size: 24px; /* Size of the plus icon */
+    color: #282c34;
+    background-color: #f0f0f0; /* Or any color that matches your branding */
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+    z-index: 1000; /* Make sure it's above other elements */
+  }
+  
+  .fab:hover {
+    background-color: #d6caca; /* Darker shade for hover effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .fab:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Accessibility for keyboard navigation */
+  .fab:focus-visible {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+  }
+  

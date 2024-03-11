@@ -1,0 +1,58 @@
+.HeaderStyle{
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.HeaderContainer{
+    display: flex;
+}
+
+.HeaderLogo{
+    height: 20vmin;
+    pointer-events: none;
+    opacity: 0;
+    animation: slideIn 2s forwards;
+}
+
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.Startblogging{
+    margin-top: 0px; /* Adjust as needed for space */
+    padding: 10px 20px; /* Adjust as needed for button size */
+    font-size: 1rem; /* Adjust as needed */
+    color: #282c34; /* This is the color of your background, used for the button text */
+    background-color: #f0f0f0; /* A light gray that contrasts well with your dark background */
+    border: 1px solid #f0f0f0; /* Optional: adds a border that is the same color as the button */
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.Startblogging:hover{
+    color: #f0f0f0; /* Light color for text on hover for better contrast */
+    background-color: #50555c;
+}
+@media screen and (min-width: 768px) {
+    .HeaderStyle h4 {
+        margin: 0;
+        margin-top: 40px;  /* Adjust as needed */
+    }
+}
