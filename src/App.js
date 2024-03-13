@@ -1,10 +1,11 @@
 import "./App.css";
-import Header from "./UI/Header";
+import Mainsetction from "./components/mainSection/Mainsection";
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Mainsetction />
     </div>
   );
 }

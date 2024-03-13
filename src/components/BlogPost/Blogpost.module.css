@@ -1,0 +1,84 @@
+.Blogpostcomponent {
+    background-color: #f7f7f7;
+    color: #333;
+    height: 100vh;
+    transition: opacity 0.5s ease-in-out;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Editortoolbar {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+  }
+  
+.postsubmitbutton {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  
+  .postsubmitbutton:hover,
+  .postsubmitbutton:focus {
+    opacity: 1;
+  }
+
+  .posttitleinput {
+    width: 100%; /* Full width */
+    padding: 15px;
+    margin: 20px 0; /* Add some space around the title input */
+    font-size: 1.5rem; /* Larger font size for the title */
+    color: #333; /* Light text for visibility on dark background */
+    background-color: white; /* Slightly lighter than the header for contrast */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 4px; /* Rounded corners */
+    outline: none; /* Remove default focus outline */
+    box-sizing: border-box; /* Ensure padding does not add to the width */
+  }
+  
+
+  
+  .postcontentinput {
+    width: 100%;
+    min-height: 300px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    border-radius: 4px;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .Blogpostcomponent {
+      padding: 10px;
+    }
+  
+    .Blogpostcomponent .postcontentinput {
+      padding: 10px;
+    }
+  }
+  
+  /* Transition effects when component mounts */
+  .Blogpostcomponent-enter {
+    opacity: 0;
+  }
+  
+  .Blogpostcomponent-enter-active {
+    opacity: 1;
+  }
+  
+  .Blogpostcomponent-exit {
+    opacity: 1;
+  }
+  
+  .Blogpostcomponent-exit-active {
+    opacity: 0;
+  }
+  

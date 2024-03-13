@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Styles from "./Header.module.css";
 import Logo from "../assests/LOGO.png";
 import { FloatingActionButton } from "./FloatingActionButton";
 
-const Header = () => {
+const Header = ({ToggleHeader}) => {
+  const [isOpen, setIsOpen] = useState(true);
+
   const onStartblogging = () => {
-    console.log("start");
+    setIsOpen((prevState) => !prevState);
+    ToggleHeader()
   };
 
   return (
-    <header className={Styles.HeaderStyle}>
+    <header
+      className={`${Styles.HeaderStyle} ${isOpen ? Styles.open : Styles.closed}`}
+    >
       <div className={Styles.HeaderContainer}>
         <h4>Welcome to bloggie</h4>
         <img src={Logo} alt="logo" className={Styles.HeaderLogo} />
