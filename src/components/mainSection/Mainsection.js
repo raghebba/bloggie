@@ -5,18 +5,16 @@ import BlogPostComponent from "../BlogPost/Blogpost";
 const Mainsetction = () => {
   const [isBlog, setIsBlog] = useState(false);
 
-  const ToggleCompnent = () => {
-    setInterval(() => {
-      setIsBlog((true));
-    }, 600);
+  const ToggleComponent = () => {
+    setIsBlog(prevstate => !prevstate);
   };
 
   return (
     <div>
       {!isBlog ? (
-        <Header ToggleHeader={ToggleCompnent} />
+        <Header ToggleHeader={ToggleComponent} />
       ) : (
-        <BlogPostComponent />
+        <BlogPostComponent blogstate={ToggleComponent} />
       )}
     </div>
   );

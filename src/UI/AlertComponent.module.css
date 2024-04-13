@@ -1,0 +1,27 @@
+.backdrop {
+  position: fixed;       /* Fixed positioning relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;           /* Cover full width */
+  height: 100%;          /* Cover full height */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+  z-index: 999;          /* Ensure it's below the popup but above other content */
+}
+
+
+.alert {
+  position: fixed;       /* Fixed positioning relative to the viewport */
+  top: 50%;              /* Center vertically */
+  left: 50%;             /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to truly center the div */
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;         /* Make sure it sits on top of other content */
+  width: auto;           /* Adjust width as necessary */
+  max-width: 90%;        /* Ensure it doesn't overflow the screen */
+  box-sizing: border-box;
+  text-align: center;    /* Optional: centers the text */
+}

@@ -15,16 +15,27 @@
   }
   
 .postsubmitbutton {
-    background: none;
-    border: none;
-    color: #007bff;
+    background-color: white;
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     opacity: 0.7;
+    margin-top: 2pc;
   }
   
   .postsubmitbutton:hover,
   .postsubmitbutton:focus {
     opacity: 1;
+  }
+
+  .post-submit-button:hover {
+    background-color: #50555c; /* Darker shade for hover effect */
+    color: #f0f0f0; /* Text color to ensure contrast with the darker background */
+    transform: scale(1.05); /* Slight increase in size on hover for visual feedback */
   }
 
   .posttitleinput {
