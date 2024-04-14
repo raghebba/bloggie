@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, push, ref } from "firebase/database";
+import { getDatabase, push, ref,onValue } from "firebase/database";
 import { getAuth, signInAnonymously,signOut } from "firebase/auth";
 
 const firebaseConfig = {
@@ -17,7 +17,10 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const database = getDatabase(firebaseApp);
 
+
+
 const auth = getAuth(firebaseApp);
+
 
 export const loginAnyonymously = ({setIsLoading}) => {
   setIsLoading(true)
@@ -41,4 +44,6 @@ export const signOutAnyonymously = () =>{
   })
 }
 
-export { database, push, ref };
+
+
+export { database, push, ref ,onValue};

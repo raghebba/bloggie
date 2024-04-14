@@ -1,22 +1,39 @@
 import React, { useState } from "react";
 import Header from "../../UI/Header";
 import BlogPostComponent from "../BlogPost/Blogpost";
+import FetchBlogs from "../fetchBlogs/fetchBlogs";
 
 const Mainsetction = () => {
-  const [isBlog, setIsBlog] = useState(false);
+  const [isBlogpost, setIsBlogpost] = useState(false);
+  const [isBlogfetch, SetIsBlogfetch] = useState(false);
   const [isLoading, setIsloading] = useState(false);
 
   const ToggleComponent = () => {
-    setIsBlog(prevstate => !prevstate);
+    setIsBlogpost((prevstate) => !prevstate);
+  };
+
+  const Toggleblogfetch = () => {
+    SetIsBlogfetch((prevstate) => !prevstate);
   };
 
   return (
     <div>
-      {!isBlog ? (
-        <Header ToggleHeader={ToggleComponent} />
+      {!isBlogpost && !isBlogfetch ? (
+        <Header
+          ToggleHeader={ToggleComponent}
+          toggleFetchblogging={Toggleblogfetch}
+        />
+      ) : isBlogpost && !isBlogfetch ? (
+        <BlogPostComponent
+          blogstate={ToggleComponent}
+          isLoading={isLoading}
+          setIsloading={setIsloading}
+          blogFetch={isBlogfetch}
+        />
       ) : (
-        <BlogPostComponent blogstate={ToggleComponent} isLoading={isLoading}
+        <FetchBlogs 
         setIsloading={setIsloading}
+        blogFetch={isBlogfetch}
         />
       )}
     </div>

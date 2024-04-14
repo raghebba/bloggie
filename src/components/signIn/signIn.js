@@ -4,11 +4,16 @@ import { categories } from "../../data/category";
 import AlertComponent from "../../UI/AlertComponent";
 import Styles from "./signIn.module.css";
 
-const AlertSignIn = ({ onValueChange, onCategorychange,setIsLoading }) => {
+const AlertSignIn = ({
+  onValueChange,
+  onCategorychange,
+  setIsLoading,
+  blogFetch,
+}) => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0].id);
 
   const handelLogin = () => {
-    loginAnyonymously({setIsLoading});
+    loginAnyonymously({ setIsLoading });
   };
 
   const handelInputchange = (event) => {
@@ -30,19 +35,21 @@ const AlertSignIn = ({ onValueChange, onCategorychange,setIsLoading }) => {
           className={Styles.psuedoInput}
         />
       </div>
-      <div>
-        <select
-          className={Styles.categorySelection}
-          onChange={handelSelectcategory}
-          value={selectedCategory}
-        >
-          {categories.map((category) => (
-            <option key={category.id} value={category.name}>
-              {category.name}
-            </option>
-          ))}
-        </select>
-      </div>
+      {!blogFetch && (
+        <div>
+          <select
+            className={Styles.categorySelection}
+            onChange={handelSelectcategory}
+            value={selectedCategory}
+          >
+            {categories.map((category) => (
+              <option key={category.id} value={category.name}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
       <button className={Styles.nextButton} onClick={handelLogin}>
         Next
       </button>

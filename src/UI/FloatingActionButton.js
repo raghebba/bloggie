@@ -1,11 +1,10 @@
 import React from "react"
-import {FaPlus} from "react-icons/fa"
 import Styles from "./FloatingActionButton.module.css"
 
-export const FloatingActionButton = ({onButtonClick}) => {
+export const FloatingActionButton = ({onButtonClick,children,style}) => {
  return(
-  <button className={Styles.fab} onClick={onButtonClick}>
-    <FaPlus />
+  <button style={style} className={Styles.fab} onClick={onButtonClick}>
+   {children}
   </button>
  )
 }

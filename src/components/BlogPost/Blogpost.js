@@ -5,13 +5,17 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import AlertSignIn from "../signIn/signIn";
 import LoadingComponent from "../../UI/LoadingComponent";
 
-const BlogPostComponent = ({ blogstate,isLoading,setIsloading }) => {
+const BlogPostComponent = ({
+  blogstate,
+  isLoading,
+  setIsloading,
+  blogFetch,
+}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [user, setuser] = useState(null);
   const [PsuedoName, setPsuedoName] = useState("");
   const [choseCat, setChoseCat] = useState("");
-  
 
   useEffect(() => {
     const auth = getAuth();
@@ -56,7 +60,7 @@ const BlogPostComponent = ({ blogstate,isLoading,setIsloading }) => {
         setTitle("");
         setContent("");
         blogstate();
-        alert("Blog Posted successfully")
+        alert("Blog Posted successfully");
         setIsloading(false);
       })
       .catch((error) => {
@@ -76,6 +80,7 @@ const BlogPostComponent = ({ blogstate,isLoading,setIsloading }) => {
                 onValueChange={handelPsuedoNameChange}
                 onCategorychange={handelchoseCatChange}
                 setIsLoading={setIsloading}
+                blogFetch={blogFetch}
               />
             )}
           </div>
