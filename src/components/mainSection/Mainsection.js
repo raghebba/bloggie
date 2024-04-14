@@ -4,6 +4,7 @@ import BlogPostComponent from "../BlogPost/Blogpost";
 
 const Mainsetction = () => {
   const [isBlog, setIsBlog] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
 
   const ToggleComponent = () => {
     setIsBlog(prevstate => !prevstate);
@@ -14,7 +15,9 @@ const Mainsetction = () => {
       {!isBlog ? (
         <Header ToggleHeader={ToggleComponent} />
       ) : (
-        <BlogPostComponent blogstate={ToggleComponent} />
+        <BlogPostComponent blogstate={ToggleComponent} isLoading={isLoading}
+        setIsloading={setIsloading}
+        />
       )}
     </div>
   );

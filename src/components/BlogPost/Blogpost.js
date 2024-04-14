@@ -3,19 +3,20 @@ import Styles from "./Blogpost.module.css";
 import { database, push, ref } from "../../config/firebaseConfig";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import AlertSignIn from "../signIn/signIn";
+import LoadingComponent from "../../UI/LoadingComponent";
 
-const BlogPostComponent = ({ blogstate }) => {
+const BlogPostComponent = ({ blogstate,isLoading,setIsloading }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [user, setuser] = useState(null);
   const [PsuedoName, setPsuedoName] = useState("");
   const [choseCat, setChoseCat] = useState("");
+  
 
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        alert(`Logged in as Anonymous User with ID: ${user.uid}`);
         setuser(user);
       } else {
         setuser(null);
@@ -42,6 +43,7 @@ const BlogPostComponent = ({ blogstate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsloading(true);
     const postRef = ref(database, "post");
     push(postRef, {
       title: title,
@@ -51,11 +53,11 @@ const BlogPostComponent = ({ blogstate }) => {
       category: choseCat,
     })
       .then(() => {
-        alert("Post created successfully!");
-        // Reset the form or handle as necessary
         setTitle("");
         setContent("");
         blogstate();
+        alert("Blog Posted successfully")
+        setIsloading(false);
       })
       .catch((error) => {
         alert("Error creating post: " + error.message);
@@ -63,33 +65,40 @@ const BlogPostComponent = ({ blogstate }) => {
   };
 
   return (
-    <div className={Styles.Blogpostcomponent}>
-      <div className={Styles.Editortoolbar}>
-        {!user && (
-          <AlertSignIn
-            onValueChange={handelPsuedoNameChange}
-            onCategorychange={handelchoseCatChange}
-          />
-        )}
-      </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          className={Styles.posttitleinput}
-          placeholder="Title of your blog post"
-          value={title}
-          onChange={handleTitleChange}
-        />
-        <textarea
-          className={Styles.postcontentinput}
-          placeholder="Write your blog post here..."
-          value={content}
-          onChange={handleContentChange}
-        />
-        <button type="submit" className={Styles.postsubmitbutton}>
-          Publish
-        </button>
-      </form>
+    <div>
+      {isLoading ? (
+        <LoadingComponent />
+      ) : (
+        <div className={Styles.Blogpostcomponent}>
+          <div className={Styles.Editortoolbar}>
+            {!user && (
+              <AlertSignIn
+                onValueChange={handelPsuedoNameChange}
+                onCategorychange={handelchoseCatChange}
+                setIsLoading={setIsloading}
+              />
+            )}
+          </div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className={Styles.posttitleinput}
+              placeholder="Title of your blog post"
+              value={title}
+              onChange={handleTitleChange}
+            />
+            <textarea
+              className={Styles.postcontentinput}
+              placeholder="Write your blog post here..."
+              value={content}
+              onChange={handleContentChange}
+            />
+            <button type="submit" className={Styles.postsubmitbutton}>
+              Publish
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };

@@ -19,13 +19,16 @@ const database = getDatabase(firebaseApp);
 
 const auth = getAuth(firebaseApp);
 
-export const loginAnyonymously = () => {
+export const loginAnyonymously = ({setIsLoading}) => {
+  setIsLoading(true)
   signInAnonymously(auth)
     .then(() => {
-      console.log("User signed in anonymously");
+      alert("User signed in ");
+      setIsLoading(false)
     })
     .catch((error) => {
-      console.error("Error signing in anonymously: ", error);
+      setIsLoading(false)
+      alert("Error signing in anonymously: ", error);
     });
 };
 

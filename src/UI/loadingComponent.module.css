@@ -1,0 +1,26 @@
+.loadingContainer {
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* This takes the full viewport height; adjust as needed */
+  }
+  
+  .spinner {
+    width: 50px;  /* Spinner size, adjust as needed*/
+    height: 50px; /* Spinner size, adjust as needed */
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #333;  /* Adjust color to match your app theme */
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

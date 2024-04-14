@@ -11,6 +11,7 @@
 
 
 .alert {
+  background-color: #f7f7f7;
   position: fixed;       /* Fixed positioning relative to the viewport */
   top: 50%;              /* Center vertically */
   left: 50%;             /* Center horizontally */
@@ -24,4 +25,5 @@
   max-width: 90%;        /* Ensure it doesn't overflow the screen */
   box-sizing: border-box;
   text-align: center;    /* Optional: centers the text */
+
 }
