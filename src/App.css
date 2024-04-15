@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  height: 100vh;
+  display: flex; /* Use flexbox to make the container stretch to contain its children */
+  flex-direction: column;
 }
 
 .App-logo {

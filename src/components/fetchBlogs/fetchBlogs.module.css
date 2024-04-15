@@ -1,5 +1,8 @@
 .fetchbBogComponent{
     background-color: #f7f7f7;
-    height: 100vh;
+    min-height: 100vh;
     padding: 20px;
+    display: flex; /* Use flexbox to make the container stretch to contain its children */
+    flex-direction: column;
+    box-sizing: border-box;
 }

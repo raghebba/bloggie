@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Styles from "./Blogpost.module.css";
 import { database, push, ref } from "../../config/firebaseConfig";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import AlertSignIn from "../signIn/signIn";
 import LoadingComponent from "../../UI/LoadingComponent";
 
@@ -10,24 +9,14 @@ const BlogPostComponent = ({
   isLoading,
   setIsloading,
   blogFetch,
+  user
 }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [user, setuser] = useState(null);
   const [PsuedoName, setPsuedoName] = useState("");
   const [choseCat, setChoseCat] = useState("");
 
-  useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setuser(user);
-      } else {
-        setuser(null);
-      }
-    });
-    return () => unsubscribe();
-  }, []);
+
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
